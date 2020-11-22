@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <SurfaceView
+        android:id="@+id/surfaceview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+    <ImageView
+        android:id="@+id/bt_camrea_switch"
+        android:layout_width="@dimen/record_imagesize"
+        android:layout_height="@dimen/record_imagesize"
+        android:layout_gravity="top|right"
+        android:scaleType="centerCrop"
+        android:src="@drawable/cameraswitch"
+        android:layout_marginTop="@dimen/margin_size_10dp"
+        android:layout_marginRight="@dimen/margin_size_10dp"/>
+
+    <ImageView
+        android:id="@+id/bt_record"
+        android:layout_width="@dimen/record_imagesize"
+        android:layout_height="@dimen/record_imagesize"
+        android:layout_gravity="bottom|center"
+        android:src="@drawable/record"
+        android:scaleType="centerCrop"
+        android:layout_marginBottom="@dimen/margin_size_10dp"/>
+</FrameLayout>

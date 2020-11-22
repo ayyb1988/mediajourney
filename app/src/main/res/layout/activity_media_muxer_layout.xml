@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tv_extractor_and_muxer"
+        style="@style/itemMargin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="提取mp4中的音轨和视频轨道>" />
+
+    <TextView
+        android:id="@+id/tv_out"
+        style="@style/itemMargin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="15sp"
+        android:text="纯音轨路径：xxx\n纯视频轨道路径: yyy" />
+
+    <TextView
+        android:id="@+id/tv_mux1"
+        style="@style/itemMargin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="纯音轨和纯视频轨道再封装合成为视频>" />
+
+    <TextView
+        android:id="@+id/tv_out1"
+        style="@style/itemMargin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="15sp"
+        android:text="输出的视频路径1：" />
+
+    <TextView
+        android:id="@+id/tv_mux2"
+        style="@style/itemMargin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="替换音轨重新合成视频>"/>
+
+    <TextView
+        android:id="@+id/tv_out2"
+        style="@style/itemMargin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="15sp"
+        android:text="输出的视频路径2：" />
+
+</LinearLayout>

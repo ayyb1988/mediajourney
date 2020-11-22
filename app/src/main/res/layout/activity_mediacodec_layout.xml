@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/tv_mediacodec_print_info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/itemMargin"
+        android:text="信息打印>"/>
+
+    <TextView
+        android:id="@+id/tv_mediacodec_info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/itemMargin"
+        android:textSize="15dp"
+        android:visibility="gone"/>
+
+
+    <TextView
+        android:id="@+id/tv_audio_decodec"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/itemMargin"
+        android:text="音频解码：AAC解码为PCM>"/>
+
+
+    <TextView
+        android:id="@+id/tv_video_decodec"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/itemMargin"
+        android:text="视频解码：解码播放视频>"/>
+
+    <TextView
+        android:id="@+id/tv_av_encodec_decodec"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/itemMargin"
+        android:text="音视频编码：av录制合成视频>"/>
+
+</LinearLayout>
