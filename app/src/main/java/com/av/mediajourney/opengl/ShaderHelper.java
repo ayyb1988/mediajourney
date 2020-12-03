@@ -80,8 +80,11 @@ public class ShaderHelper {
     public static int loadProgram(String verCode, String fragmentCode) {
         //1. 创建Shader程序，获取到program句柄
         int programId = GLES20.glCreateProgram();
+
         if(programId == 0){
-            Log.e(TAG, "loadProgram: glCreateProgram error" );
+            int errorCode = GLES20.glGetError();
+
+            Log.e(TAG, "loadProgram: glCreateProgram error errorCode="+errorCode );
             return 0;
         }
         //2. 根据着色器语言类型和代码，attach着色器

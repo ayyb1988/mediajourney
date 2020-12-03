@@ -1,10 +1,17 @@
 package com.av.mediajourney;
 
+import android.content.Context;
 import android.content.Intent;
+import android.graphics.ColorFilter;
+import android.graphics.ColorMatrix;
+import android.graphics.ColorMatrixColorFilter;
+import android.graphics.Paint;
 import android.os.Build;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.util.Log;
 import android.view.View;
+import android.view.accessibility.AccessibilityManager;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -18,8 +25,11 @@ import com.av.mediajourney.image.ImageActivity;
 import com.av.mediajourney.mediaMuxer.MediaMuxerActivity;
 import com.av.mediajourney.mediacodec.MediaCodecActivity;
 import com.av.mediajourney.opengl.GlSurfaceActivity;
+import com.av.mediajourney.opengl.filter.FilterMainActivity;
 import com.av.mediajourney.opengl.texture.GuangZhouTaTextureActivity;
 import com.av.mediajourney.utils.PermissionCheckerUtil;
+
+import java.lang.reflect.Method;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -45,6 +55,8 @@ public class MainActivity extends AppCompatActivity {
     TextView tvGlsurfaceview;
     @BindView(R.id.tv_texture)
     TextView tvTexture;
+    @BindView(R.id.tv_filter)
+    TextView tvFilter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,7 +76,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @OnClick({R.id.tv_image, R.id.tv_audiorecord, R.id.tv_audiotrackstaic, R.id.tv_audiotrackstream,
-            R.id.tv_camera, R.id.tv_muxer, R.id.tv_mediacodec, R.id.tv_glsurfaceview,R.id.tv_texture})
+            R.id.tv_camera, R.id.tv_muxer, R.id.tv_mediacodec, R.id.tv_glsurfaceview, R.id.tv_texture,
+            R.id.tv_filter})
     public void onViewClicked(View view) {
         Class<?> targetClass = null;
         switch (view.getId()) {
@@ -94,9 +107,12 @@ public class MainActivity extends AppCompatActivity {
                 targetClass = GlSurfaceActivity.class;
                 break;
             case R.id.tv_texture:
-                                targetClass = GuangZhouTaTextureActivity.class;
+                targetClass = GuangZhouTaTextureActivity.class;
 
 //                targetClass = TextureActivity.class;
+                break;
+            case R.id.tv_filter:
+                targetClass = FilterMainActivity.class;
                 break;
         }
         if (targetClass != null) {

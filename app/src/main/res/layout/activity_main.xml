@@ -70,4 +70,11 @@
         style="@style/itemMargin"
         android:text="纹理"/>
 
+    <TextView
+        android:id="@+id/tv_filter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/itemMargin"
+        android:text="滤镜"/>
+
 </LinearLayout>

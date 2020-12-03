@@ -22,7 +22,7 @@ import android.content.Context;
 import android.opengl.GLSurfaceView.Renderer;
 
 import com.av.mediajourney.R;
-import com.av.mediajourney.opengl.texture.objects.GuangzhouTa;
+import com.av.mediajourney.opengl.texture.objects.TextureObject;
 import com.av.mediajourney.opengl.texture.objects.VertexDataUtils;
 import com.av.mediajourney.opengl.texture.programs.TextureShaderProgram;
 import com.av.mediajourney.opengl.texture.util.TextureHelper;
@@ -32,7 +32,7 @@ public class GuangZhouTaRenderer implements Renderer {
     private final Context context;
 
 
-    private GuangzhouTa guangzhouta;
+    private TextureObject guangzhouta;
 
     private TextureShaderProgram textureProgram;
 
@@ -46,7 +46,7 @@ public class GuangZhouTaRenderer implements Renderer {
     public void onSurfaceCreated(GL10 glUnused, EGLConfig config) {
         glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
 
-        guangzhouta = new GuangzhouTa(VertexDataUtils.SPLIT_SCREEN_2_VERTEX_DATA);
+        guangzhouta = new TextureObject(VertexDataUtils.SPLIT_SCREEN_2_VERTEX_DATA);
 
         textureProgram = new TextureShaderProgram(context);
 

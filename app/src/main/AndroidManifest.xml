@@ -31,8 +31,11 @@
         <activity android:name=".mediaMuxer.MediaMuxerActivity" />
         <activity android:name=".mediacodec.MediaCodecActivity" />
         <activity android:name=".opengl.GlSurfaceActivity" />
-        <activity android:name=".opengl.airhockey.part3.AirHockeyActivity" />
         <activity android:name=".opengl.texture.GuangZhouTaTextureActivity" />
+        <activity android:name=".opengl.filter.colorFilter.ColorFilterActivity" />
+        <activity android:name=".opengl.filter.ImageFilter.ImageFilterActivity" />
+        <activity android:name=".opengl.filter.FilterMainActivity" />
+        <activity android:name=".opengl.filter.camerapreview.CameraPreViewFilterActivity" />
     </application>
 
 </manifest>

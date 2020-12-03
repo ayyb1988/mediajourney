@@ -21,6 +21,8 @@ abstract class ShaderProgram {
     // Attribute constants
     protected static final String A_POSITION = "a_Position";
     protected static final String A_COLOR = "a_Color";
+    protected static final String U_TYPE_INDEX = "u_TypeIndex";
+    protected static final String U_COLOR ="u_Color";
     protected static final String A_TEXTURE_COORDINATES = "a_TextureCoordinates";
 
     // Shader program
@@ -29,5 +31,9 @@ abstract class ShaderProgram {
     public void useProgram() {
         // Set the current OpenGL shader program to this program.
         glUseProgram(program);
+    }
+
+    public int getProgram() {
+        return program;
     }
 }

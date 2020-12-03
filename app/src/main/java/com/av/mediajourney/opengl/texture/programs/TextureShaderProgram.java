@@ -9,6 +9,7 @@
 package com.av.mediajourney.opengl.texture.programs;
 
 import android.content.Context;
+import android.util.Log;
 
 import com.av.mediajourney.MyApplication;
 import com.av.mediajourney.opengl.ShaderHelper;
@@ -30,6 +31,7 @@ public class TextureShaderProgram  extends ShaderProgram{
     private final int aPositionLocation;
     private final int aTextureCoordinatesLocation;
     private final int aColorLocation;
+    private final int uTypeIndex;
 
     public TextureShaderProgram(Context context) {
 
@@ -39,14 +41,39 @@ public class TextureShaderProgram  extends ShaderProgram{
         program = ShaderHelper.loadProgram(vertexCode, fragmentCode);
 
         uTextureUnitLocation = glGetUniformLocation(program, U_TEXTURE_UNIT);
-        
+
         aPositionLocation = glGetAttribLocation(program, A_POSITION);
-        aTextureCoordinatesLocation = 
-            glGetAttribLocation(program, A_TEXTURE_COORDINATES);
+        aTextureCoordinatesLocation =
+                glGetAttribLocation(program, A_TEXTURE_COORDINATES);
 
         aColorLocation = glGetAttribLocation(program, A_COLOR);
 
+        uTypeIndex = glGetUniformLocation(program,U_TYPE_INDEX);
+
     }
+
+    public TextureShaderProgram(Context context,String vertexCode,String fragmentCode) {
+
+           //创建着色器程序
+        program = ShaderHelper.loadProgram(vertexCode, fragmentCode);
+
+        uTextureUnitLocation = glGetUniformLocation(program, U_TEXTURE_UNIT);
+
+        aPositionLocation = glGetAttribLocation(program, A_POSITION);
+        aTextureCoordinatesLocation =
+                glGetAttribLocation(program, A_TEXTURE_COORDINATES);
+
+        aColorLocation = glGetAttribLocation(program, A_COLOR);
+
+        uTypeIndex = glGetUniformLocation(program,U_TYPE_INDEX);
+
+
+        Log.i("TextureShaderProgram", "TextureShaderProgram: aTypeIndex="+ uTypeIndex +" aColorLocation="+aColorLocation
+        +" aTextureCoordinatesLocation="+aTextureCoordinatesLocation+" aPositionLocation="+aPositionLocation);
+
+
+    }
+
 
     public void setUniforms( int textureId) {
         glActiveTexture(GL_TEXTURE0);
@@ -70,6 +97,10 @@ public class TextureShaderProgram  extends ShaderProgram{
 
     public int getColorAttributeLocation() {
         return aColorLocation;
+    }
+
+    public int getFilterIndexUniformLocation(){
+        return uTypeIndex;
     }
 
 }

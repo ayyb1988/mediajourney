@@ -13,7 +13,7 @@ import com.av.mediajourney.opengl.texture.programs.TextureShaderProgram;
 import static android.opengl.GLES20.GL_TRIANGLE_FAN;
 import static android.opengl.GLES20.glDrawArrays;
 
-public class GuangzhouTa {
+public class TextureObject {
     private static final int POSITION_COMPONENT_COUNT = 2;
     private static final int COLOR_COMPONENT_COUNT = 3;
     private static final int TEXTURE_COORDINATES_COMPONENT_COUNT = 2;
@@ -24,7 +24,7 @@ public class GuangzhouTa {
 
     private final VertexArray vertexArray;
     
-    public GuangzhouTa(float[] vertexData) {
+    public TextureObject(float[] vertexData) {
         vertexArray = new VertexArray(vertexData);
     }
     

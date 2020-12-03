@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_marginTop="20dp"
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/iv_image"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:src="@drawable/bg"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/bt_origin"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            style="@style/itemMargin"
+            android:layout_height="wrap_content"
+            android:text="原图"/>
+
+        <Button
+            android:id="@+id/bt_gray"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            style="@style/itemMargin"
+
+            android:layout_height="wrap_content"
+            android:text="黑白"/>
+
+        <Button
+            android:id="@+id/bt_warm"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            style="@style/itemMargin"
+
+            android:layout_height="wrap_content"
+            android:text="暖色"/>
+
+        <Button
+            android:id="@+id/bt_cool"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            style="@style/itemMargin"
+
+            android:layout_height="wrap_content"
+            android:text="冷色"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginTop="80dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/itemMargin"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" 色 调： "/>
+        <SeekBar
+            android:id="@+id/sb_hue"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:max="200"
+            android:progress="100"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/itemMargin"
+        android:layout_marginTop="50dp"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="饱和度   "/>
+        <SeekBar
+            android:id="@+id/sb_saturation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:max="200"
+            android:progress="100"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+
+        style="@style/itemMargin"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="亮   度："/>
+        <SeekBar
+            android:id="@+id/sb_lum"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:max="200"
+            android:progress="100"/>
+    </LinearLayout>
+
+</LinearLayout>

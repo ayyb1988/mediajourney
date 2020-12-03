@@ -2,6 +2,7 @@ package com.av.mediajourney;
 
 import android.app.Application;
 import android.content.Context;
+import android.provider.Settings;
 
 public class MyApplication extends Application {
 
