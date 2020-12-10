@@ -36,6 +36,10 @@
         <activity android:name=".opengl.filter.ImageFilter.ImageFilterActivity" />
         <activity android:name=".opengl.filter.FilterMainActivity" />
         <activity android:name=".opengl.filter.camerapreview.CameraPreViewFilterActivity" />
+<!--        <activity android:name=".particles.android.ParticlesActivity" />-->
+<!--        <activity android:name=".particles.skybox.ParticlesSkyBoxActivity" />-->
+<!--        <activity android:name=".particles.heightmap.ParticlesHeightMapActivity" />-->
+        <activity android:name=".particles.ParticleActivity" />
     </application>
 
 </manifest>

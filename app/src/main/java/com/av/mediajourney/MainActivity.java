@@ -27,6 +27,10 @@ import com.av.mediajourney.mediacodec.MediaCodecActivity;
 import com.av.mediajourney.opengl.GlSurfaceActivity;
 import com.av.mediajourney.opengl.filter.FilterMainActivity;
 import com.av.mediajourney.opengl.texture.GuangZhouTaTextureActivity;
+import com.av.mediajourney.particles.ParticleActivity;
+//import com.av.mediajourney.particles.android.ParticlesActivity;
+import com.av.mediajourney.particles.heightmap.ParticlesHeightMapActivity;
+import com.av.mediajourney.particles.skybox.ParticlesSkyBoxActivity;
 import com.av.mediajourney.utils.PermissionCheckerUtil;
 
 import java.lang.reflect.Method;
@@ -57,6 +61,8 @@ public class MainActivity extends AppCompatActivity {
     TextView tvTexture;
     @BindView(R.id.tv_filter)
     TextView tvFilter;
+    @BindView(R.id.tv_particles)
+    TextView tvParticles;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -77,7 +83,7 @@ public class MainActivity extends AppCompatActivity {
 
     @OnClick({R.id.tv_image, R.id.tv_audiorecord, R.id.tv_audiotrackstaic, R.id.tv_audiotrackstream,
             R.id.tv_camera, R.id.tv_muxer, R.id.tv_mediacodec, R.id.tv_glsurfaceview, R.id.tv_texture,
-            R.id.tv_filter})
+            R.id.tv_filter,R.id.tv_particles})
     public void onViewClicked(View view) {
         Class<?> targetClass = null;
         switch (view.getId()) {
@@ -114,6 +120,13 @@ public class MainActivity extends AppCompatActivity {
             case R.id.tv_filter:
                 targetClass = FilterMainActivity.class;
                 break;
+            case R.id.tv_particles:
+                targetClass = ParticleActivity.class;
+//                targetClass = ParticlesActivity.class;
+//                targetClass = ParticlesSkyBoxActivity.class;
+//                targetClass = ParticlesHeightMapActivity.class;
+                break;
+
         }
         if (targetClass != null) {
             Intent intent = new Intent(MainActivity.this, targetClass);
