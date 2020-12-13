@@ -1,4 +1,5 @@
 uniform float u_Time;
+uniform mat4 u_Matrix; //定义矩阵数据类型变量
 
 attribute vec3 a_Position;
 attribute vec3 a_Color;
@@ -20,7 +21,11 @@ void main(){
     curPossition.y -= gravityFactor;
 
     //把当前位置通过内置变量传给片元着色器
-    gl_Position =  vec4(curPossition,1.0);
+//    gl_Position =  vec4(curPossition,1.0);
+
+    //把当前位置和MVP矩阵相乘后，通过内置变量传给片元着色器
+    gl_Position = u_Matrix * vec4(curPossition, 1.0);
+
     gl_PointSize = 25.0;
 }
 

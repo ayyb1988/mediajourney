@@ -28,9 +28,6 @@ import com.av.mediajourney.opengl.GlSurfaceActivity;
 import com.av.mediajourney.opengl.filter.FilterMainActivity;
 import com.av.mediajourney.opengl.texture.GuangZhouTaTextureActivity;
 import com.av.mediajourney.particles.ParticleActivity;
-//import com.av.mediajourney.particles.android.ParticlesActivity;
-import com.av.mediajourney.particles.heightmap.ParticlesHeightMapActivity;
-import com.av.mediajourney.particles.skybox.ParticlesSkyBoxActivity;
 import com.av.mediajourney.utils.PermissionCheckerUtil;
 
 import java.lang.reflect.Method;

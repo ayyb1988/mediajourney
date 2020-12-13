@@ -5,10 +5,14 @@ import android.opengl.GLES20;
 
 import com.av.mediajourney.opengl.ShaderHelper;
 
+import static android.opengl.GLES20.glGetUniformLocation;
+import static android.opengl.GLES20.glUniformMatrix4fv;
+
 public class ParticleShaderProgram {
 
     private final String U_TIME ="u_Time";
     private final String U_TEXTURE_UNIT ="u_TextureUnit";
+    private final String U_MATRIX = "u_Matrix";
 
     private final String A_POSITION="a_Position";
     private final String A_COLOR="a_Color";
@@ -19,6 +23,7 @@ public class ParticleShaderProgram {
 
     private final int uTimeLocation;
     private final int uTextureUnit;
+    private final int uMatrixLocation;
 
     private final int aPositionLocation;
     private final int aColorLocation;
@@ -37,6 +42,7 @@ public class ParticleShaderProgram {
 
         uTimeLocation = GLES20.glGetUniformLocation(program,U_TIME);
         uTextureUnit = GLES20.glGetUniformLocation(program,U_TEXTURE_UNIT);
+        uMatrixLocation = glGetUniformLocation(program, U_MATRIX);
 
         aPositionLocation = GLES20.glGetAttribLocation(program,A_POSITION);
         aColorLocation = GLES20.glGetAttribLocation(program,A_COLOR);
@@ -45,10 +51,13 @@ public class ParticleShaderProgram {
     }
 
     /**
-     * 设置 始终如一的Uniform变量
+     * 设置Uniform变量
+     * @param matrix
      * @param curTime
      */
-    public void setUniforms(float curTime, int textureId){
+    public void setUniforms(float[] matrix, float curTime, int textureId){
+        GLES20.glUniformMatrix4fv(uMatrixLocation, 1, false, matrix, 0);
+
         GLES20.glUniform1f(uTimeLocation,curTime);
 
         //激活纹理

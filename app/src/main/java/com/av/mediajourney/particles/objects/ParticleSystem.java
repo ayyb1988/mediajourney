@@ -67,9 +67,9 @@ public class ParticleSystem {
         particles[currentOffset++] = position.z;
 
         //填充 颜色 rgb
-        particles[currentOffset++] = Color.red(color) / 255;
-        particles[currentOffset++] = Color.green(color) / 255;
-        particles[currentOffset++] = Color.blue(color) / 255;
+        particles[currentOffset++] = Color.red(color) / 255f;
+        particles[currentOffset++] = Color.green(color) / 255f;
+        particles[currentOffset++] = Color.blue(color) / 255f;
 
         //填充 运动矢量
         particles[currentOffset++] = direction.x;
