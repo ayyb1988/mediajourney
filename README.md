@@ -38,3 +38,6 @@
 
 [音视频开发之旅（15） OpenGL ES粒子系统 - 喷泉](https://mp.weixin.qq.com/s?__biz=MzU5NjkxMjE5Mg==&mid=2247483869&idx=1&sn=ae260fc2ee8524dc96f6667cc6d70045&chksm=fe5a30f2c92db9e4e68cf09f14e223325a5406a4cad372c96b855c892a253537f19a13c50258&token=1731064216&lang=zh_CN#rd)
 
+[音视频开发之旅（16） OpenGL ES粒子效果-烟花爆炸](https://mp.weixin.qq.com/s?__biz=MzU5NjkxMjE5Mg==&mid=2247483880&idx=1&sn=a98782c22e9847821f9a105fc2df574b&chksm=fe5a30c7c92db9d11574d7def3521dde58dbe2dba55b093d73e3f9130a9e608627e58c551818&token=1731064216&lang=zh_CN#rd)
+
+
