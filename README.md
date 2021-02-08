@@ -72,7 +72,7 @@
 
 [音视频开发之旅（29) 算法序列 - 散列表](https://mp.weixin.qq.com/s?__biz=MzU5NjkxMjE5Mg==&mid=2247483984&idx=1&sn=d5789ff20707c66883de187f5ed71768&chksm=fe5a337fc92dba695d7b5eb5da52985503824e4912d058e9861af79446466f6385cd19ceb1a9&scene=178&cur_album_id=1694360361589587972#rd)
 
-##阶段四 : FFmpeg
+## 阶段四 : FFmpeg
 
 [音视频开发之旅（30) -音视频基础知识](https://mp.weixin.qq.com/s?__biz=MzU5NjkxMjE5Mg==&mid=2247483993&idx=1&sn=f2a323711a5c304d32156745b52c837c&chksm=fe5a3376c92dba6070ba8db529d5658434c3267ec37704c6dfdfb2cb5b0ec5a569cf581ced76&scene=178&cur_album_id=1728684328802369536#rd)
 
