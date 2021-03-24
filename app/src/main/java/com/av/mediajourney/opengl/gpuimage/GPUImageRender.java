@@ -5,6 +5,7 @@ import android.opengl.GLES20;
 import android.opengl.GLSurfaceView;
 
 import com.av.mediajourney.R;
+import com.av.mediajourney.opengl.ShaderHelper;
 import com.av.mediajourney.opengl.gpuimage.util.Rotation;
 import com.av.mediajourney.opengl.texture.util.TextureHelper;
 
@@ -46,7 +47,10 @@ public class GPUImageRender implements GLSurfaceView.Renderer {
 
     @Override
     public void onSurfaceCreated(GL10 gl, EGLConfig config) {
-        blurFilter = new GPUImageGaussianBlurFilter();
+        String vertexStr = ShaderHelper.loadAsset(context.getResources(), "blur_vertex_gpuimage.glsl");
+        String fragStr = ShaderHelper.loadAsset(context.getResources(), "blur_frag_gpuimage.glsl");
+
+        blurFilter = new GPUImageGaussianBlurFilter(vertexStr,fragStr);
         blurFilter.ifNeedInit();
 
         inputTextureId = TextureHelper.loadTexture(context, R.drawable.bg);
