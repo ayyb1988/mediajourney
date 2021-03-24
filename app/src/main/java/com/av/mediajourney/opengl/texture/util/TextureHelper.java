@@ -14,6 +14,8 @@ import android.graphics.BitmapFactory;
 import android.util.Log;
 
 
+import com.av.mediajourney.utils.BitmapUtils;
+
 import static android.opengl.GLES20.GL_LINEAR;
 import static android.opengl.GLES20.GL_LINEAR_MIPMAP_LINEAR;
 import static android.opengl.GLES20.GL_REPEAT;
@@ -48,14 +50,9 @@ public class TextureHelper {
             Log.w(TAG, "Could not generate a new OpenGL texture object.");
 
             return 0;
-        } 
-        
-        final BitmapFactory.Options options = new BitmapFactory.Options();
-        options.inScaled = false;
+        }
 
-        // Read in the resource
-        final Bitmap bitmap = BitmapFactory.decodeResource(
-            context.getResources(), resourceId, options);
+        Bitmap bitmap = getBitmap(context, resourceId);
 
         if (bitmap == null) {
             Log.w(TAG, "Resource ID " + resourceId + " could not be decoded.");
@@ -94,5 +91,22 @@ public class TextureHelper {
         glBindTexture(GL_TEXTURE_2D, 0);
 
         return textureObjectIds[0];
+    }
+
+    private static Bitmap getBitmap(Context context, int resourceId) {
+        final BitmapFactory.Options options = new BitmapFactory.Options();
+        options.inScaled = false;
+
+        // Read in the resource
+        Bitmap bitmap = BitmapFactory.decodeResource(
+            context.getResources(), resourceId, options);
+
+        //优化点：对原图进行缩放，1/16的数据量 ，缩放大小根据具体场景而定
+        bitmap = Bitmap.createScaledBitmap(bitmap,
+                bitmap.getWidth() / 4,
+                bitmap.getHeight() / 4,
+                true);
+
+        return bitmap;
     }
 }
