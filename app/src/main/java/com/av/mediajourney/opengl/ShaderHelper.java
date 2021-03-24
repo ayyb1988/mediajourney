@@ -1,18 +1,22 @@
 package com.av.mediajourney.opengl;
 
 import android.content.res.Resources;
+import android.graphics.Bitmap;
+import android.hardware.Camera;
 import android.opengl.GLES20;
+import android.opengl.GLUtils;
 import android.util.Log;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.nio.IntBuffer;
 
 public class ShaderHelper {
 
     private static final String TAG = "ShaderHelper";
-
+    public static final int NO_TEXTURE = -1;
 
     public static String loadAsset(Resources res, String path) {
         StringBuilder stringBuilder = new StringBuilder();
@@ -88,13 +92,85 @@ public class ShaderHelper {
             return 0;
         }
         //2. 根据着色器语言类型和代码，attach着色器
-        GLES20.glAttachShader(programId, loadShader(GLES20.GL_VERTEX_SHADER, verCode));
-        GLES20.glAttachShader(programId, loadShader(GLES20.GL_FRAGMENT_SHADER, fragmentCode));
+        int vertexShader = loadShader(GLES20.GL_VERTEX_SHADER, verCode);
+        int fragmentShader = loadShader(GLES20.GL_FRAGMENT_SHADER, fragmentCode);
+        GLES20.glAttachShader(programId, vertexShader);
+        GLES20.glAttachShader(programId, fragmentShader);
         //3. 链接
         GLES20.glLinkProgram(programId);
         //4. 使用
         GLES20.glUseProgram(programId);
+
+        int[] status = new int[1];
+        GLES20.glGetProgramiv(programId, GLES20.GL_LINK_STATUS, status, 0);
+        if (status[0] <= 0) {
+            Log.d("Load Program", "Linking Failed");
+            return 0;
+        }
+        GLES20.glDeleteShader(vertexShader);
+        GLES20.glDeleteShader(fragmentShader);
+
         return programId;
+    }
+
+    public static int loadTexture(final Bitmap img, final int usedTexId) {
+        return loadTexture(img, usedTexId, true);
+    }
+
+    public static int loadTexture(final Bitmap img, final int usedTexId, final boolean recycle) {
+        int textures[] = new int[1];
+        if (usedTexId == NO_TEXTURE) {
+            GLES20.glGenTextures(1, textures, 0);
+            GLES20.glBindTexture(GLES20.GL_TEXTURE_2D, textures[0]);
+            GLES20.glTexParameterf(GLES20.GL_TEXTURE_2D,
+                    GLES20.GL_TEXTURE_MAG_FILTER, GLES20.GL_LINEAR);
+            GLES20.glTexParameterf(GLES20.GL_TEXTURE_2D,
+                    GLES20.GL_TEXTURE_MIN_FILTER, GLES20.GL_LINEAR);
+            GLES20.glTexParameterf(GLES20.GL_TEXTURE_2D,
+                    GLES20.GL_TEXTURE_WRAP_S, GLES20.GL_CLAMP_TO_EDGE);
+            GLES20.glTexParameterf(GLES20.GL_TEXTURE_2D,
+                    GLES20.GL_TEXTURE_WRAP_T, GLES20.GL_CLAMP_TO_EDGE);
+
+            GLUtils.texImage2D(GLES20.GL_TEXTURE_2D, 0, img, 0);
+        } else {
+            GLES20.glBindTexture(GLES20.GL_TEXTURE_2D, usedTexId);
+            GLUtils.texSubImage2D(GLES20.GL_TEXTURE_2D, 0, 0, 0, img);
+            textures[0] = usedTexId;
+        }
+        if (recycle) {
+            img.recycle();
+        }
+        return textures[0];
+    }
+
+    public static int loadTexture(final IntBuffer data, final int width, final int height, final int usedTexId) {
+        int textures[] = new int[1];
+        if (usedTexId == NO_TEXTURE) {
+            GLES20.glGenTextures(1, textures, 0);
+            GLES20.glBindTexture(GLES20.GL_TEXTURE_2D, textures[0]);
+            GLES20.glTexParameterf(GLES20.GL_TEXTURE_2D,
+                    GLES20.GL_TEXTURE_MAG_FILTER, GLES20.GL_LINEAR);
+            GLES20.glTexParameterf(GLES20.GL_TEXTURE_2D,
+                    GLES20.GL_TEXTURE_MIN_FILTER, GLES20.GL_LINEAR);
+            GLES20.glTexParameterf(GLES20.GL_TEXTURE_2D,
+                    GLES20.GL_TEXTURE_WRAP_S, GLES20.GL_CLAMP_TO_EDGE);
+            GLES20.glTexParameterf(GLES20.GL_TEXTURE_2D,
+                    GLES20.GL_TEXTURE_WRAP_T, GLES20.GL_CLAMP_TO_EDGE);
+            GLES20.glTexImage2D(GLES20.GL_TEXTURE_2D, 0, GLES20.GL_RGBA, width, height,
+                    0, GLES20.GL_RGBA, GLES20.GL_UNSIGNED_BYTE, data);
+        } else {
+            GLES20.glBindTexture(GLES20.GL_TEXTURE_2D, usedTexId);
+            GLES20.glTexSubImage2D(GLES20.GL_TEXTURE_2D, 0, 0, 0, width,
+                    height, GLES20.GL_RGBA, GLES20.GL_UNSIGNED_BYTE, data);
+            textures[0] = usedTexId;
+        }
+        return textures[0];
+    }
+
+    public static int loadTextureAsBitmap(final IntBuffer data, final Camera.Size size, final int usedTexId) {
+        Bitmap bitmap = Bitmap
+                .createBitmap(data.array(), size.width, size.height, Bitmap.Config.ARGB_8888);
+        return loadTexture(bitmap, usedTexId);
     }
 
 

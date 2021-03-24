@@ -1,10 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:layout_marginTop="30dp">
 
-    <android.opengl.GLSurfaceView
-        android:id="@+id/glSView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:layout_width="@dimen/blur_image_w"
+            android:layout_height="@dimen/blur_image_w"
+            android:src="@drawable/bg"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="40sp"
+            android:layout_gravity="center"
+            android:textColor="@android:color/holo_red_light"
+            android:text="原图"/>
+
+    </FrameLayout>
+
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <android.opengl.GLSurfaceView
+            android:id="@+id/glSView"
+            android:layout_width="@dimen/blur_image_w"
+            android:layout_height="@dimen/blur_image_w"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="40sp"
+            android:layout_gravity="center"
+            android:textColor="@android:color/holo_red_light"
+            android:text="blur"/>
+
+    </FrameLayout>
+
 </LinearLayout>

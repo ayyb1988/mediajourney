@@ -84,5 +84,12 @@
         style="@style/itemMargin"
         android:text="粒子"/>
 
+    <TextView
+        android:id="@+id/tv_gpuimage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/itemMargin"
+        android:text="fbo"/>
+
 
 </LinearLayout>

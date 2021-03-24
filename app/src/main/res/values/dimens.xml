@@ -5,4 +5,5 @@
     <dimen name="textSize">20sp</dimen>
     <dimen name="marginlr">15dp</dimen>
     <dimen name="record_imagesize">50dp</dimen>
+    <dimen name="blur_image_w">300dp</dimen>
 </resources>
