@@ -41,3 +41,41 @@
 [音视频开发之旅（16） OpenGL ES粒子效果-烟花爆炸](https://mp.weixin.qq.com/s?__biz=MzU5NjkxMjE5Mg==&mid=2247483880&idx=1&sn=a98782c22e9847821f9a105fc2df574b&chksm=fe5a30c7c92db9d11574d7def3521dde58dbe2dba55b093d73e3f9130a9e608627e58c551818&token=1731064216&lang=zh_CN#rd)
 
 
+## 阶段三: JNI&NDK
+
+[音视频开发之旅（17） JNI与NDK的学习和使用](https://mp.weixin.qq.com/s?__biz=MzU5NjkxMjE5Mg==&mid=2247483891&idx=1&sn=b4744912ed4815510c5558f146d5cc02&chksm=fe5a30dcc92db9ca2b4444b451830c00e34664ca969a796001415f9e68810260be06e85d817c&token=37260846&lang=zh_CN#rd)
+
+
+[音视频开发之旅（18） JNI - 引用类型、异常处理、函数注册](https://mp.weixin.qq.com/s?__biz=MzU5NjkxMjE5Mg==&mid=2247483896&idx=1&sn=77320a2b2ceac5bb4ad9e6a819fe4f08&chksm=fe5a30d7c92db9c179efeeedc70011f46556575a037509bf23cccc09ddca52d6582f11b68fa6&scene=178&cur_album_id=1658177869384040453#rd)
+
+[音视频开发之旅（19）NDK构建方式 ndk-build与cmake](https://mp.weixin.qq.com/s?__biz=MzU5NjkxMjE5Mg==&mid=2247483902&idx=1&sn=0d0740b5313115c3ceaf3b7bb2e4194f&chksm=fe5a30d1c92db9c783934b2ff295f5f832231a94494d78de326178c9dd64db2525fbe380f377&scene=178&cur_album_id=1658177869384040453#rd)
+
+[音视频开发之旅（20) 指针、内存模型、引用](https://mp.weixin.qq.com/s?__biz=MzU5NjkxMjE5Mg==&mid=2247483907&idx=1&sn=21f50c4fe711e63c7797b844f52124a1&chksm=fe5a332cc92dba3a76d8fb9f583743b3472d68ff7a3a768437680e400ebfcc744ad2f33ca4bf&scene=178&cur_album_id=1658177869384040453#rd)
+
+[音视频开发之旅（21）运算符重载、继承、多态、模版](https://mp.weixin.qq.com/s?__biz=MzU5NjkxMjE5Mg==&mid=2247483914&idx=1&sn=a3d5af91105459675317bd168ea2ec1d&chksm=fe5a3325c92dba33335e665822b1d87385718f447aa36f9715fcfd6aa1bf08a625ec0e124a5c&scene=178&cur_album_id=1658177869384040453#rd)
+
+[音视频开发之旅（22) STL 之 容器](https://mp.weixin.qq.com/s?__biz=MzU5NjkxMjE5Mg==&mid=2247483929&idx=1&sn=4f0c404d5c93f13bb92a42159667a844&chksm=fe5a3336c92dba20db1c110b705914d3d88b184a66bc464d5ffdc67eff9a2001e86ca09e3d21&scene=178&cur_album_id=1658177869384040453#rd)
+
+### 子系列 算法
+
+[音视频开发之旅（23) 算法系列 - 冒泡排序](https://mp.weixin.qq.com/s?__biz=MzU5NjkxMjE5Mg==&mid=2247483935&idx=1&sn=8fc1c476dc721b7b4be04ee180cfc82c&chksm=fe5a3330c92dba26766dab1ea4df71c01fc6ec9b9223e424a521dffefaf47394f0c9c08434c6&scene=178&cur_album_id=1658177869384040453#rd)
+
+[音视频开发之旅（24) 算法系列-快速排序](https://mp.weixin.qq.com/s?__biz=MzU5NjkxMjE5Mg==&mid=2247483942&idx=1&sn=815d3cd94b5f7e8e44a5ec4410c6f9de&chksm=fe5a3309c92dba1f0e842378eaaf6286e9a4a2f55f936699c9988f9ff63293531276b68f2717&scene=178&cur_album_id=1694360361589587972#rd)
+
+[音视频开发之旅（25) 算法系列-堆排序](https://mp.weixin.qq.com/s?__biz=MzU5NjkxMjE5Mg==&mid=2247483952&idx=1&sn=43355d2ecd870d6d57e436a8d8b0dc2b&chksm=fe5a331fc92dba09e7f789eb902bad6bf5b78e28ba1e400e43705ca16622704b52083afe816c&scene=178&cur_album_id=1694360361589587972#rd)
+
+[音视频开发之旅（26) 算法系列-选择、插入排序以及STL中sort的实现](https://mp.weixin.qq.com/s?__biz=MzU5NjkxMjE5Mg==&mid=2247483959&idx=1&sn=4734349965d568e3098b08f58b710380&chksm=fe5a3318c92dba0ed375b6b355653774d9772c8468dcc2001f8cb51987bf8b550bfc25106f94&scene=178&cur_album_id=1694360361589587972#rd)
+
+[音视频开发之旅（27) 算法序列 - 二叉查找树](https://mp.weixin.qq.com/s?__biz=MzU5NjkxMjE5Mg==&mid=2247483965&idx=1&sn=b2d3f5e36877b19f00fadd42af527e72&chksm=fe5a3312c92dba04fc0c1638f2b39e9913df082cf74646959d6461465d5b6e83c5ed994758e9&scene=178&cur_album_id=1694360361589587972#rd)
+
+[音视频开发之旅（28) 算法序列 - 平衡二叉树](https://mp.weixin.qq.com/s?__biz=MzU5NjkxMjE5Mg==&mid=2247483974&idx=1&sn=fff4f633e92f3fe428345783321fa57b&chksm=fe5a3369c92dba7fcb34ea25c8f38ddef96e59ee3df7399f969a5e6839a6e80ca10b28530f95&scene=178&cur_album_id=1694360361589587972#rd)
+
+[音视频开发之旅（29) 算法序列 - 散列表](https://mp.weixin.qq.com/s?__biz=MzU5NjkxMjE5Mg==&mid=2247483984&idx=1&sn=d5789ff20707c66883de187f5ed71768&chksm=fe5a337fc92dba695d7b5eb5da52985503824e4912d058e9861af79446466f6385cd19ceb1a9&scene=178&cur_album_id=1694360361589587972#rd)
+
+## 阶段四 : FFmpeg
+
+[音视频开发之旅（30) -音视频基础知识](https://mp.weixin.qq.com/s?__biz=MzU5NjkxMjE5Mg==&mid=2247483993&idx=1&sn=f2a323711a5c304d32156745b52c837c&chksm=fe5a3376c92dba6070ba8db529d5658434c3267ec37704c6dfdfb2cb5b0ec5a569cf581ced76&scene=178&cur_album_id=1728684328802369536#rd)
+
+[音视频开发之旅（31) -FFMPEG常用命令](https://mp.weixin.qq.com/s?__biz=MzU5NjkxMjE5Mg==&mid=2247484000&idx=1&sn=414778c5dc22d0756eeaa4ab62d3be6e&chksm=fe5a334fc92dba5939a67ec89ef628228dc7ac695cd1d975a58365be9dbd99cf8c9a05f18b9b&scene=178&cur_album_id=1728684328802369536#rd)
+
+
