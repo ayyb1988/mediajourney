@@ -1,6 +1,7 @@
 package com.av.mediajourney;
 
 import android.content.Intent;
+import android.graphics.Path;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
@@ -13,6 +14,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.av.mediajourney.audiorecord.AudioRecordActivity;
 import com.av.mediajourney.audiotrack.AudioTrackStaticActivity;
 import com.av.mediajourney.audiotrack.AudioTrackStreamActivity;
+import com.av.mediajourney.bezier.BeizerAndroidAcitivity;
+import com.av.mediajourney.bezier.BezierActivity;
+import com.av.mediajourney.bezier.BezierMainActivity;
 import com.av.mediajourney.camera.CameraActivity;
 import com.av.mediajourney.image.ImageActivity;
 import com.av.mediajourney.mediaMuxer.MediaMuxerActivity;
@@ -54,6 +58,9 @@ public class MainActivity extends AppCompatActivity {
     TextView tvParticles;
     @BindView(R.id.tv_gpuimage)
     TextView tvGpuimage;
+    @BindView(R.id.tv_bezier)
+    TextView tvBezier;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,7 +81,7 @@ public class MainActivity extends AppCompatActivity {
 
     @OnClick({R.id.tv_image, R.id.tv_audiorecord, R.id.tv_audiotrackstaic, R.id.tv_audiotrackstream,
             R.id.tv_camera, R.id.tv_muxer, R.id.tv_mediacodec, R.id.tv_glsurfaceview, R.id.tv_texture,
-            R.id.tv_filter,R.id.tv_particles,R.id.tv_gpuimage})
+            R.id.tv_filter, R.id.tv_particles, R.id.tv_gpuimage, R.id.tv_bezier})
     public void onViewClicked(View view) {
         Class<?> targetClass = null;
         switch (view.getId()) {
@@ -120,12 +127,21 @@ public class MainActivity extends AppCompatActivity {
             case R.id.tv_gpuimage:
                 targetClass = GpuImageActivity.class;
                 break;
+            case R.id.tv_bezier:
+//                targetClass = BezierActivity.class;
+                targetClass = BezierMainActivity.class;
+                break;
 
         }
         if (targetClass != null) {
             Intent intent = new Intent(MainActivity.this, targetClass);
             startActivity(intent);
         }
+
+
+
+
+
     }
 
 }

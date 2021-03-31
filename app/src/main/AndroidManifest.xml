@@ -41,6 +41,9 @@
 <!--        <activity android:name=".particles.heightmap.ParticlesHeightMapActivity" />-->
         <activity android:name=".particles.ParticleActivity" />
         <activity android:name=".opengl.gpuimage.GpuImageActivity" />
+        <activity android:name=".bezier.BezierActivity" />
+        <activity android:name=".bezier.BezierMainActivity" />
+        <activity android:name=".bezier.BeizerAndroidAcitivity" />
     </application>
 
 </manifest>
