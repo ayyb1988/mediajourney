@@ -15,6 +15,7 @@ class BezierActivity : AppCompatActivity() {
         val llRoot: LinearLayout = findViewById(R.id.ll_root)
 
         val bezierRender = BezierRender(this)
+//        val bezierRender = BezierCurveLineRender(this)
         val render = CommonGLRender(this, bezierRender)
         val glSurfaceView = GLSurfaceView(this)
         glSurfaceView.apply {

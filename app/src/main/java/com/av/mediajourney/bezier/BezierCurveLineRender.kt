@@ -11,9 +11,7 @@ import com.av.mediajourney.opengl.ShaderHelper
 import java.nio.FloatBuffer
 import java.nio.IntBuffer
 
-class BezierRender(private val context: Context) : IGLRender {
-
-    val isDrawPoints = false
+class BezierCurveLineRender(private val context: Context) : IGLRender {
 
     val POINTS_NUM = 256
     val TRIANGLES_PER_POINT = 3
@@ -23,12 +21,11 @@ class BezierRender(private val context: Context) : IGLRender {
     var uOffsetLocation = -1;
     var uStartEndDataLocation = -1;
     var uControlDataLocation = -1;
-    var uMVPMatrixLocation = -1;
     var uColorLocation = -1;
+    var uMVPMatrixLocation = -1;
 
-    val mVaoId = 0
+
     lateinit var vaoBuffers: IntBuffer;
-    var mFrameIndex = 0
 
     var mMVPMatrix = FloatArray(16)
 
@@ -41,8 +38,9 @@ class BezierRender(private val context: Context) : IGLRender {
     //正交/投影矩阵
     var mPorjectMatrix = FloatArray(16)
 
+
     override fun onSurfaceCreated() {
-        val vertexStr = ShaderHelper.loadAsset(context.resources, "vertex_beziercurve.glsl")
+        val vertexStr = ShaderHelper.loadAsset(context.resources, "vertex_beziercurve2.glsl")
         val fragStr = ShaderHelper.loadAsset(context.resources, "frag_beziercurve.glsl")
         mProgram = ShaderHelper.loadProgram(vertexStr, fragStr)
 
@@ -69,26 +67,25 @@ class BezierRender(private val context: Context) : IGLRender {
         val floatBuffer: FloatBuffer = FloatBuffer.allocate(tDataSize)
 
         for (i in 0..tDataSize step TRIANGLES_PER_POINT) {
-            if (isDrawPoints) {
-                if (i < tDataSize) {
-                    floatBuffer.put(i, i * 1.0f / tDataSize)
-                }
-                if (i + 1 < tDataSize) {
-                    floatBuffer.put(i + 1, (i + 1) * 1.0f / tDataSize)
-                }
-                if (i + 2 < tDataSize) {
-                    floatBuffer.put(i + 2, (i + 2) * 1.0f / tDataSize)
-                }
-            } else {
-                if (i < tDataSize) {
-                    floatBuffer.put(i, i * 1.0f / tDataSize)
-                }
-                if (i + 1 < tDataSize) {
-                    floatBuffer.put(i + 1, (i + 3) * 1.0f / tDataSize)
-                }
-                if (i + 2 < tDataSize) {
-                    floatBuffer.put(i + 2, -1f)
-                }
+            //设置数据 0,1/3*256,2/3*256,3/3*356.... 1
+//            if (i < tDataSize) {
+//                floatBuffer.put(i, i * 1.0f / tDataSize)
+//            }
+//            if (i + 1 < tDataSize) {
+//                floatBuffer.put(i + 1, (i + 1) * 1.0f / tDataSize)
+//            }
+//            if (i + 2 < tDataSize) {
+//                floatBuffer.put(i + 2, (i + 2) * 1.0f / tDataSize)
+//            }
+
+            if (i < tDataSize) {
+                floatBuffer.put(i, i * 1.0f / tDataSize)
+            }
+            if (i + 1 < tDataSize) {
+                floatBuffer.put(i + 1, (i + 3) * 1.0f / tDataSize)
+            }
+            if (i + 2 < tDataSize) {
+                floatBuffer.put(i + 2, -1f)
             }
 
         }
@@ -110,25 +107,22 @@ class BezierRender(private val context: Context) : IGLRender {
 
         GLES30.glVertexAttribPointer(tDataLocation, 1, GLES20.GL_FLOAT, false, 4, 0)
 
-
         //delete
         GLES20.glBindBuffer(GLES20.GL_ARRAY_BUFFER, 0)
         GLES30.glBindVertexArray(GLES30.GL_NONE)
-
     }
 
     override fun onSurfaceChanged(width: Int, height: Int) {
         GLES20.glViewport(0, 0, width, height)
     }
 
+    var mFrameIndex =0;
+
     override fun draw() {
         GLES20.glClear(GLES20.GL_COLOR_BUFFER_BIT)
         GLES20.glClearColor(0.0f, 0.0f, 0.0f, 1.0f)
 
         GLES20.glUseProgram(mProgram)
-
-        GLES20.glEnable(GLES20.GL_BLEND)
-        GLES20.glBlendFuncSeparate(GLES20.GL_ONE,GLES20.GL_ONE_MINUS_SRC_COLOR,GLES20.GL_ONE,GLES20.GL_ONE_MINUS_SRC_ALPHA)
 
         GLES30.glBindVertexArray(vaoBuffers[0])
 
@@ -139,7 +133,6 @@ class BezierRender(private val context: Context) : IGLRender {
         GLES20.glUniform4f(uControlDataLocation, -0.04f, 0.99f, 0f, 0.99f)
 
         GLES20.glEnableVertexAttribArray(uColorLocation)
-//        GLES20.glUniform4f(uColorLocation, 1f, 0.3f, 0f, 1f)
         GLES20.glUniform4f(uColorLocation, 1f, 0f, 0f, 1f)
 
         mFrameIndex++;
@@ -156,44 +149,15 @@ class BezierRender(private val context: Context) : IGLRender {
 
         drawOneBezier(1f)
 
-        //draw secondary
-        GLES20.glUniform4f(uControlDataLocation, -0.8f, 0.99f, 0f, 0f)
-        GLES20.glUniform4f(uColorLocation, 0.3f, 1f, 0f, 1f)
-
-        newIndex = mFrameIndex + 33
-        offset = (newIndex % 100) * 1.0f / 100;
-        //然后到达一定量之后取反 实现来回的闭环动画
-        offset = if ((newIndex / 100) % 2 == 1) (1 - offset) else offset
-        GLES20.glEnableVertexAttribArray(uOffsetLocation)
-        GLES20.glUniform1f(uOffsetLocation, offset)
-
-        drawOneBezier(offset)
-
-
-        //draw three
-        GLES20.glUniform4f(uControlDataLocation, 0f, 0f, 0.8f, 0.99f)
-        GLES20.glUniform4f(uColorLocation, 0f, 0.3f, 1f, 1f)
-
-        newIndex = newIndex + 33
-        offset = (newIndex % 100) * 1.0f / 100;
-        //然后到达一定量之后取反 实现来回的闭环动画
-        offset = if ((newIndex / 100) % 2 == 1) (1 - offset) else offset
-        GLES20.glEnableVertexAttribArray(uOffsetLocation)
-        GLES20.glUniform1f(uOffsetLocation, offset)
-
-        drawOneBezier(offset)
-
-        GLES20.glDisable(GLES20.GL_BLEND)
     }
 
     private fun drawOneBezier(offset: Float) {
         var offset1=1f
         //设置模型矩阵
         Matrix.setIdentityM(mModelMatrix, 0)
-//        Matrix.translateM(mModelMatrix,0,-10f,0f,0f)
-        Matrix.scaleM(mModelMatrix,0,0.7f*offset1,0.5f*offset1,1f)
         Matrix.rotateM(mModelMatrix, 0, 0f, 1f*offset1, 0f, 0f)
-        Matrix.rotateM(mModelMatrix, 0, 180f, 0f, 1f*offset1, 0f)
+//        Matrix.rotateM(mModelMatrix, 0, 180f, 0f, 1f*offset1, 0f)
+
 
         //矩阵相乘得到mvp矩阵变换
         Matrix.multiplyMM(mMVPMatrix, 0, mViewMatrix, 0, mModelMatrix, 0)
@@ -201,17 +165,15 @@ class BezierRender(private val context: Context) : IGLRender {
 
         GLES20.glUniformMatrix4fv(uMVPMatrixLocation, 1, false, mMVPMatrix, 0)
 
-        drawArray()
+//        GLES20.glDrawArrays(GLES20.GL_POINTS, 0, POINTS_NUM * TRIANGLES_PER_POINT)
+        GLES20.glDrawArrays(GLES20.GL_TRIANGLES, 0, POINTS_NUM * TRIANGLES_PER_POINT)
 
         //沿着x轴翻转,绘制另外半边
         //设置模型矩阵
         Matrix.setIdentityM(mModelMatrix, 0)
-//        Matrix.translateM(mModelMatrix,0,-10f,0f,0f)
-
-        Matrix.scaleM(mModelMatrix,0,0.7f*offset1,0.5f*offset1,1f)
 
         Matrix.rotateM(mModelMatrix, 0, 180f, 1f*offset1, 0f, 0f)
-        Matrix.rotateM(mModelMatrix, 0, 180f, 0f, 1f*offset1, 0f)
+//        Matrix.rotateM(mModelMatrix, 0, 180f, 0f, 1f*offset1, 0f)
 
         //矩阵相乘得到mvp矩阵变换
         Matrix.multiplyMM(mMVPMatrix, 0, mViewMatrix, 0, mModelMatrix, 0)
@@ -219,17 +181,10 @@ class BezierRender(private val context: Context) : IGLRender {
 
         GLES20.glUniformMatrix4fv(uMVPMatrixLocation, 1, false, mMVPMatrix, 0)
 
-        drawArray()
+//        GLES20.glDrawArrays(GLES20.GL_POINTS, 0, POINTS_NUM * TRIANGLES_PER_POINT)
+        GLES20.glDrawArrays(GLES20.GL_TRIANGLES, 0, POINTS_NUM * TRIANGLES_PER_POINT)
     }
 
-    private fun drawArray() {
-        if (isDrawPoints) {
-            GLES20.glDrawArrays(GLES20.GL_POINTS, 0, POINTS_NUM * TRIANGLES_PER_POINT)
-        } else {
-            GLES20.glDrawArrays(GLES20.GL_TRIANGLES, 0, POINTS_NUM * TRIANGLES_PER_POINT)
-            GLES20.glDrawArrays(GLES20.GL_LINES, 0, POINTS_NUM * TRIANGLES_PER_POINT)
-        }
-    }
 
     override fun onTouch(v: View?, event: MotionEvent?): Boolean {
         return true
