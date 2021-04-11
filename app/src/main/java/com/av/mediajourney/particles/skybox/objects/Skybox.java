@@ -18,7 +18,7 @@ import com.av.mediajourney.particles.skybox.data.VertexArray;
 import com.av.mediajourney.particles.skybox.programs.SkyboxShaderProgram;
 
 public class Skybox {
-    private static final int POSITION_COMPONENT_COUNT = 3;
+    public static final int POSITION_COMPONENT_COUNT = 3;
     private final VertexArray vertexArray;
     private final ByteBuffer indexArray;
     

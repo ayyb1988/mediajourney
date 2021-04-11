@@ -98,5 +98,11 @@
         style="@style/itemMargin"
         android:text="贝塞尔曲面"/>
 
+    <TextView
+        android:id="@+id/tv_skybox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/itemMargin"
+        android:text="天空盒"/>
 
 </LinearLayout>

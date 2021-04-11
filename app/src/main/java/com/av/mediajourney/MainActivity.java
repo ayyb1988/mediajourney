@@ -26,6 +26,8 @@ import com.av.mediajourney.opengl.gpuimage.GpuImageActivity;
 import com.av.mediajourney.opengl.filter.FilterMainActivity;
 import com.av.mediajourney.opengl.texture.GuangZhouTaTextureActivity;
 import com.av.mediajourney.particles.ParticleActivity;
+import com.av.mediajourney.particles.skybox.ParticlesSkyBoxActivity;
+import com.av.mediajourney.skybox.SkyBoxActivity;
 import com.av.mediajourney.utils.PermissionCheckerUtil;
 
 import butterknife.BindView;
@@ -60,6 +62,8 @@ public class MainActivity extends AppCompatActivity {
     TextView tvGpuimage;
     @BindView(R.id.tv_bezier)
     TextView tvBezier;
+    @BindView(R.id.tv_skybox)
+    TextView tvSkybox;
 
 
     @Override
@@ -81,7 +85,7 @@ public class MainActivity extends AppCompatActivity {
 
     @OnClick({R.id.tv_image, R.id.tv_audiorecord, R.id.tv_audiotrackstaic, R.id.tv_audiotrackstream,
             R.id.tv_camera, R.id.tv_muxer, R.id.tv_mediacodec, R.id.tv_glsurfaceview, R.id.tv_texture,
-            R.id.tv_filter, R.id.tv_particles, R.id.tv_gpuimage, R.id.tv_bezier})
+            R.id.tv_filter, R.id.tv_particles, R.id.tv_gpuimage, R.id.tv_bezier,R.id.tv_skybox})
     public void onViewClicked(View view) {
         Class<?> targetClass = null;
         switch (view.getId()) {
@@ -130,6 +134,10 @@ public class MainActivity extends AppCompatActivity {
             case R.id.tv_bezier:
 //                targetClass = BezierActivity.class;
                 targetClass = BezierMainActivity.class;
+                break;
+            case R.id.tv_skybox:
+//                targetClass = ParticlesSkyBoxActivity.class;
+                targetClass = SkyBoxActivity.class;
                 break;
 
         }

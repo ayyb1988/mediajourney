@@ -153,9 +153,9 @@ public class ParticlesRenderer implements Renderer {
         particleTexture = TextureHelper.loadTexture(context, R.drawable.particle_texture);
 
         skyboxTexture = TextureHelper.loadCubeMap(context, 
-            new int[] { R.drawable.left, R.drawable.right,
-                        R.drawable.bottom, R.drawable.top, 
-                        R.drawable.front, R.drawable.back});
+            new int[] { R.drawable.left2, R.drawable.right2,
+                        R.drawable.bottom2, R.drawable.top2,
+                        R.drawable.front2, R.drawable.back2});
     }
 
     @Override

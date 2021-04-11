@@ -11,6 +11,13 @@ package com.av.mediajourney.particles.android.util;
 import static android.opengl.GLES20.GL_LINEAR;
 import static android.opengl.GLES20.GL_LINEAR_MIPMAP_LINEAR;
 import static android.opengl.GLES20.GL_TEXTURE_2D;
+import static android.opengl.GLES20.GL_TEXTURE_CUBE_MAP;
+import static android.opengl.GLES20.GL_TEXTURE_CUBE_MAP_NEGATIVE_X;
+import static android.opengl.GLES20.GL_TEXTURE_CUBE_MAP_NEGATIVE_Y;
+import static android.opengl.GLES20.GL_TEXTURE_CUBE_MAP_NEGATIVE_Z;
+import static android.opengl.GLES20.GL_TEXTURE_CUBE_MAP_POSITIVE_X;
+import static android.opengl.GLES20.GL_TEXTURE_CUBE_MAP_POSITIVE_Y;
+import static android.opengl.GLES20.GL_TEXTURE_CUBE_MAP_POSITIVE_Z;
 import static android.opengl.GLES20.GL_TEXTURE_MAG_FILTER;
 import static android.opengl.GLES20.GL_TEXTURE_MIN_FILTER;
 import static android.opengl.GLES20.glBindTexture;
@@ -95,5 +102,61 @@ public class TextureHelper {
         glBindTexture(GL_TEXTURE_2D, 0);
 
         return textureObjectIds[0];        
+    }
+
+    /**
+     * 加载立方体纹理贴图
+     * @param context
+     * @param cubeResources
+     * @return
+     */
+    public static int loadCubeMap(Context context, int[] cubeResources) {
+        final int[] textureObjectIds = new int[1];
+        glGenTextures(1, textureObjectIds, 0);
+
+        if (textureObjectIds[0] == 0) {
+            Log.w(TAG, "Could not generate a new OpenGL texture object.");
+            return 0;
+        }
+        final BitmapFactory.Options options = new BitmapFactory.Options();
+        options.inScaled = false;
+        final Bitmap[] cubeBitmaps = new Bitmap[6];
+        for (int i = 0; i < 6; i++) {
+            cubeBitmaps[i] =
+                    BitmapFactory.decodeResource(context.getResources(),
+                            cubeResources[i], options);
+
+            if (cubeBitmaps[i] == null) {
+                Log.w(TAG, "Resource ID " + cubeResources[i]
+                        + " could not be decoded.");
+                glDeleteTextures(1, textureObjectIds, 0);
+                return 0;
+            }
+        }
+        // Linear filtering for minification and magnification
+        //注意这里不是GL_TEXTURE_2D，而是GL_TEXTURE_CUBE_MAP，使用六张纹理组合成一个立方体纹理
+        glBindTexture(GL_TEXTURE_CUBE_MAP, textureObjectIds[0]);
+
+        glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+        glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+
+        //左右、下上、前后---》注意 使用的是左手坐标系
+        texImage2D(GL_TEXTURE_CUBE_MAP_NEGATIVE_X, 0, cubeBitmaps[0], 0);
+        texImage2D(GL_TEXTURE_CUBE_MAP_POSITIVE_X, 0, cubeBitmaps[1], 0);
+
+        texImage2D(GL_TEXTURE_CUBE_MAP_NEGATIVE_Y, 0, cubeBitmaps[2], 0);
+        texImage2D(GL_TEXTURE_CUBE_MAP_POSITIVE_Y, 0, cubeBitmaps[3], 0);
+
+        texImage2D(GL_TEXTURE_CUBE_MAP_NEGATIVE_Z, 0, cubeBitmaps[4], 0);
+        texImage2D(GL_TEXTURE_CUBE_MAP_POSITIVE_Z, 0, cubeBitmaps[5], 0);
+
+        glBindTexture(GL_TEXTURE_CUBE_MAP, 0);
+
+        //把纹理复制到GPU后就可以回收原理的bitmap了
+        for (Bitmap bitmap : cubeBitmaps) {
+            bitmap.recycle();
+        }
+
+        return textureObjectIds[0];
     }
 }

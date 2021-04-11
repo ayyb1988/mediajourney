@@ -8,8 +8,8 @@ void main()
     // Make sure to convert from the right-handed coordinate system of the
     // world to the left-handed coordinate system of the cube map, otherwise,
     // our cube map will still work but everything will be flipped.
-    v_Position.z = -v_Position.z; 
-	           
+//    v_Position.z = -v_Position.z;
+
     gl_Position = u_Matrix * vec4(a_Position, 1.0);
     gl_Position = gl_Position.xyww;
 }    
