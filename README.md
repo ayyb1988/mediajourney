@@ -78,4 +78,28 @@
 
 [音视频开发之旅（31) -FFMPEG常用命令](https://mp.weixin.qq.com/s?__biz=MzU5NjkxMjE5Mg==&mid=2247484000&idx=1&sn=414778c5dc22d0756eeaa4ab62d3be6e&chksm=fe5a334fc92dba5939a67ec89ef628228dc7ac695cd1d975a58365be9dbd99cf8c9a05f18b9b&scene=178&cur_album_id=1728684328802369536#rd)
 
+**[音视频开发之旅（32)-音视频学习资料](https://mp.weixin.qq.com/s?__biz=MzU5NjkxMjE5Mg==&mid=2247484010&idx=1&sn=5919da1df4ae1111e24d9a5f5c497b67&chksm=fe5a3345c92dba5316356c1a6306fe1c1351968fb8673b4f289d92530de63fd62ca122f78d07&token=2096832100&lang=zh_CN#rd)**
+
+[音视频开发之旅（33) -交叉编译android使用的FFmpeg(3.x和4.x)](https://mp.weixin.qq.com/s?__biz=MzU5NjkxMjE5Mg==&mid=2247484016&idx=1&sn=e704e8f37a898f13b77084f127d929c2&chksm=fe5a335fc92dba493b8ed3d24109fc6e45a888dc423611e98004867800356fc7a2a242c4a509&token=2096832100&lang=zh_CN#rd)
+
+[音视频开发之旅（34) - 基于FFmpeg实现简单的视频解码器](https://mp.weixin.qq.com/s?__biz=MzU5NjkxMjE5Mg==&mid=2247484029&idx=1&sn=d2ad0fb856cfc5c993e202c0af54c2f4&chksm=fe5a3352c92dba44f92be71ba83a4791666955284454f831f4b76bd40c87b665dd011f7c4428&token=2096832100&lang=zh_CN#rd)
+
+[音视频开发之旅（35) -FFmpeg + AudioTrack 实现音频解码和播放](https://mp.weixin.qq.com/s?__biz=MzU5NjkxMjE5Mg==&mid=2247484036&idx=1&sn=903c183b9ec0f6499bdb808625f4075c&chksm=fe5a33abc92dbabdcd93be16915a81b3cee27a959e44c02687eba5dbc65a14df13a48daf9082&token=2096832100&lang=zh_CN#rd)
+
+[音视频开发之旅（36) -FFmpeg +OpenSL ES实现音频解码和播放](https://mp.weixin.qq.com/s?__biz=MzU5NjkxMjE5Mg==&mid=2247484044&idx=1&sn=8b58cab242a12d53c2d0f4c961a78e33&chksm=fe5a33a3c92dbab5d2280baa3f32c70f707799313914ab62d3669180253704767073650c5f80&token=2096832100&lang=zh_CN#rd)
+
+[音视频开发之旅（37) -FFmpeg + OpenGLES 边解码边播放视频（一）](https://mp.weixin.qq.com/s?__biz=MzU5NjkxMjE5Mg==&mid=2247484056&idx=1&sn=84cc6fd52abf653c69ecb57915163e00&chksm=fe5a33b7c92dbaa12687b76abfdaaa43a9d487cb800a547e788180eb25a8d2d14a38983069c1&token=2096832100&lang=zh_CN#rd)
+
+
+## 阶段二进阶 : 渲染
+
+[音视频开发之旅（38) -使用FBO实现渲染到纹理（Render to texture）](https://mp.weixin.qq.com/s?__biz=MzU5NjkxMjE5Mg==&mid=2247484063&idx=1&sn=c199d703e42f27d25ab89c762c0f0ced&chksm=fe5a33b0c92dbaa678ac47317b2a5a30cf1e496c953ccb83aec9ca88889526f03bc8b34dc206&token=2096832100&lang=zh_CN#rd)
+
+[音视频开发之旅（39)- 高斯模糊实现与优化](https://mp.weixin.qq.com/s?__biz=MzU5NjkxMjE5Mg==&mid=2247484074&idx=1&sn=510061dfa833b076aa46586755dcd3f5&chksm=fe5a3385c92dba931fb205e5df85ec3e24b9641f0bc7a5801cc5694046512a35e0f0806fd984&token=2096832100&lang=zh_CN#rd)
+
+[音视频开发之旅（40)-贝塞尔曲线和曲面](https://mp.weixin.qq.com/s?__biz=MzU5NjkxMjE5Mg==&mid=2247484097&idx=1&sn=dfecc94d20dc9ed068abd793fb64dc2c&chksm=fe5a33eec92dbaf8a4a7db4b948bab4b56801bb5f5d9a25c9eb7a0884c113eb3c32781e3fb4f&token=2096832100&lang=zh_CN#rd)
+
+[音视频开发之旅（41)-天空盒](https://mp.weixin.qq.com/s?__biz=MzU5NjkxMjE5Mg==&mid=2247484107&idx=1&sn=02efd4756cbbaf8d8d54042d79a389bc&chksm=fe5a33e4c92dbaf2ee722eb498b9c2514966f591f658857ede6d92f0ea59e5ae0e261a757f6a&token=2096832100&lang=zh_CN#rd)
+
+[音视频开发之旅（42) - 光照基础(一)](https://mp.weixin.qq.com/s?__biz=MzU5NjkxMjE5Mg==&mid=2247484118&idx=1&sn=1e85d583e14cb94a8764603e0e483203&chksm=fe5a33f9c92dbaefaa6d5bf4b5a92a809876e7fd089ddb1ab173eb86bc31daed9f25c85d1c64&token=2096832100&lang=zh_CN#rd)
 
