@@ -1,108 +1,123 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".MainActivity">
+    android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/tv_image"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        style="@style/itemMargin"
-        android:text="三种方式绘制图片>"/>
 
-    <TextView
-        android:id="@+id/tv_audiorecord"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        style="@style/itemMargin"
-        android:text="音频录制"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/tv_audiotrackstaic"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        style="@style/itemMargin"
-        android:text="音频播放STAIC_MODE"/>
+        <TextView
+            android:id="@+id/tv_image"
+            style="@style/itemMargin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="三种方式绘制图片>" />
 
-    <TextView
-        android:id="@+id/tv_audiotrackstream"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        style="@style/itemMargin"
-        android:text="音频播放STREAM_MODE"/>
+        <TextView
+            android:id="@+id/tv_audiorecord"
+            style="@style/itemMargin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="音频录制" />
 
-    <TextView
-        android:id="@+id/tv_camera"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        style="@style/itemMargin"
-        android:text="Camera视频采集"/>
+        <TextView
+            android:id="@+id/tv_audiotrackstaic"
+            style="@style/itemMargin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="音频播放STAIC_MODE" />
 
-    <TextView
-        android:id="@+id/tv_muxer"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        style="@style/itemMargin"
-        android:text="extractor和muxer"/>
+        <TextView
+            android:id="@+id/tv_audiotrackstream"
+            style="@style/itemMargin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="音频播放STREAM_MODE" />
 
-    <TextView
-        android:id="@+id/tv_mediacodec"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        style="@style/itemMargin"
-        android:text="mediaCodec"/>
+        <TextView
+            android:id="@+id/tv_camera"
+            style="@style/itemMargin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Camera视频采集" />
 
-    <TextView
-        android:id="@+id/tv_glsurfaceview"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        style="@style/itemMargin"
-        android:text="glSurfaceView"/>
+        <TextView
+            android:id="@+id/tv_muxer"
+            style="@style/itemMargin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="extractor和muxer" />
 
-    <TextView
-        android:id="@+id/tv_texture"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        style="@style/itemMargin"
-        android:text="纹理"/>
+        <TextView
+            android:id="@+id/tv_mediacodec"
+            style="@style/itemMargin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="mediaCodec" />
 
-    <TextView
-        android:id="@+id/tv_filter"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        style="@style/itemMargin"
-        android:text="滤镜"/>
+        <TextView
+            android:id="@+id/tv_glsurfaceview"
+            style="@style/itemMargin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="glSurfaceView" />
 
-    <TextView
-        android:id="@+id/tv_particles"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        style="@style/itemMargin"
-        android:text="粒子"/>
+        <TextView
+            android:id="@+id/tv_texture"
+            style="@style/itemMargin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="纹理" />
 
-    <TextView
-        android:id="@+id/tv_gpuimage"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        style="@style/itemMargin"
-        android:text="高斯模糊"/>
+        <TextView
+            android:id="@+id/tv_filter"
+            style="@style/itemMargin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="滤镜" />
 
-    <TextView
-        android:id="@+id/tv_bezier"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        style="@style/itemMargin"
-        android:text="贝塞尔曲面"/>
+        <TextView
+            android:id="@+id/tv_particles"
+            style="@style/itemMargin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="粒子" />
 
-    <TextView
-        android:id="@+id/tv_skybox"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        style="@style/itemMargin"
-        android:text="天空盒"/>
+        <TextView
+            android:id="@+id/tv_gpuimage"
+            style="@style/itemMargin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="高斯模糊" />
 
-</LinearLayout>
+        <TextView
+            android:id="@+id/tv_bezier"
+            style="@style/itemMargin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="贝塞尔曲面" />
+
+        <TextView
+            android:id="@+id/tv_skybox"
+            style="@style/itemMargin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="天空盒" />
+
+        <TextView
+            android:id="@+id/tv_cube"
+            style="@style/itemMargin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="立方体" />
+
+
+    </LinearLayout>
+
+</ScrollView>

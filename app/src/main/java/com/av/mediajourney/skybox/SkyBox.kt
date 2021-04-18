@@ -1,5 +1,6 @@
 package com.av.mediajourney.skybox
 
+import com.av.mediajourney.opengl.GLProgram
 import java.nio.ByteBuffer
 import java.nio.ByteOrder
 import java.nio.FloatBuffer
@@ -10,6 +11,9 @@ class SkyBox {
     companion object{
         val BYTES_PER_FLOAT = 4
         val POSITION_COMPONENT_COUNT = 3 // xyz
+        val POSITION_TEXTURE_COUNT = 2 // uv
+        val STRIDE = (POSITION_COMPONENT_COUNT + POSITION_TEXTURE_COUNT) * BYTES_PER_FLOAT
+
     }
 
 

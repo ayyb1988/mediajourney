@@ -46,6 +46,7 @@
         <activity android:name=".bezier.BeizerAndroidAcitivity" />
         <activity android:name=".particles.skybox.ParticlesSkyBoxActivity" />
         <activity android:name=".skybox.SkyBoxActivity" />
+        <activity android:name=".skybox.CubeActivity" />
     </application>
 
 </manifest>
