@@ -45,7 +45,7 @@ class CubeRender(var context: Context) : GLSurfaceView.Renderer {
 
         uTextureLoc = GLES20.glGetUniformLocation(mProgram, "uTexture")
 
-        skyBoxTexture = TextureHelper.loadTexture(context, R.drawable.liangjian)
+        skyBoxTexture = TextureHelper.loadTexture(context, R.drawable.guilin)
 
     }
 
