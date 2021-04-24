@@ -115,7 +115,7 @@
             style="@style/itemMargin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="立方体" />
+            android:text="光照基础" />
 
 
     </LinearLayout>

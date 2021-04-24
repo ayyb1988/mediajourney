@@ -23,29 +23,44 @@ class CubeRender(var context: Context) : GLSurfaceView.Renderer {
 
     private var aPositionLoc = -1;
     private var aTextureCoorLoc = -1;
+    //法向量loaction
+    private var aNormalCoorLoc = -1;
     private var uMatrixLoc = -1;
+    private var uModelMatrixLoc = -1;
     private var uTextureLoc = -1;
     private var skyBoxTexture = -1;
+    private var ulightcolorLoc = -1;
+    private var ulightPosLoc = -1;
+    private var uViewPosLoc = -1;
 
 
     override fun onSurfaceCreated(gl: GL10?, config: EGLConfig?) {
         GLES20.glClearColor(0f, 0f, 0f, 1f)
         cubeLight = CubeLight()
-//        val vertexStr = ShaderHelper.loadAsset(context.resources, "cube_light_vertex.glsl")
-        val vertexStr = ShaderHelper.loadAsset(context.resources, "cube_vertex.glsl")
-//        val fragStr = ShaderHelper.loadAsset(context.resources, "cube_light_fragment.glsl")
-        val fragStr = ShaderHelper.loadAsset(context.resources, "cube_fragment.glsl")
+        val vertexStr = ShaderHelper.loadAsset(context.resources, "cube_light_vertex.glsl")
+//        val vertexStr = ShaderHelper.loadAsset(context.resources, "cube_vertex.glsl")
+        val fragStr = ShaderHelper.loadAsset(context.resources, "cube_light_fragment.glsl")
+//        val fragStr = ShaderHelper.loadAsset(context.resources, "cube_fragment.glsl")
 
         mProgram = ShaderHelper.loadProgram(vertexStr, fragStr)
 
         aPositionLoc = GLES20.glGetAttribLocation(mProgram, "aPosition")
         aTextureCoorLoc = GLES20.glGetAttribLocation(mProgram, "aTexCoord")
+        aNormalCoorLoc = GLES20.glGetAttribLocation(mProgram, "aNormal")
+
 
         uMatrixLoc = GLES20.glGetUniformLocation(mProgram, "uMatrix")
+        uModelMatrixLoc = GLES20.glGetUniformLocation(mProgram, "uModelMatrix")
 
         uTextureLoc = GLES20.glGetUniformLocation(mProgram, "uTexture")
 
-        skyBoxTexture = TextureHelper.loadTexture(context, R.drawable.guilin)
+        ulightcolorLoc = GLES20.glGetUniformLocation(mProgram, "lightColor");
+
+        ulightPosLoc = GLES20.glGetUniformLocation(mProgram, "lightPos");
+
+        uViewPosLoc = GLES20.glGetUniformLocation(mProgram, "viewPos");
+
+        skyBoxTexture = TextureHelper.loadTexture(context, R.drawable.xiongmao)
 
     }
 
@@ -89,6 +104,9 @@ class CubeRender(var context: Context) : GLSurfaceView.Renderer {
 
         //传mvp矩阵数据
         GLES20.glUniformMatrix4fv(uMatrixLoc, 1, false, mvpMatrix, 0)
+
+        GLES20.glUniformMatrix4fv(uModelMatrixLoc,1,false,modeMatrix,0)
+
         //传纹理数据
         GLES20.glActiveTexture(GLES20.GL_TEXTURE0)
         GLES20.glBindTexture(GLES20.GL_TEXTURE_2D, skyBoxTexture)
@@ -103,8 +121,23 @@ class CubeRender(var context: Context) : GLSurfaceView.Renderer {
         cubeLight.vertexArrayBuffer.position(CubeLight.POSITION_COMPONENT_COUNT);
         GLES20.glVertexAttribPointer(aTextureCoorLoc, CubeLight.POSITION_TEXTURE_COUNT, GLES20.GL_FLOAT, false, CubeLight.STRIDE, cubeLight.vertexArrayBuffer)
 
+        GLES20.glEnableVertexAttribArray(aNormalCoorLoc)
+        cubeLight.vertexArrayBuffer.position(CubeLight.POSITION_COMPONENT_COUNT+CubeLight.POSITION_TEXTURE_COUNT)
+        GLES20.glVertexAttribPointer(aNormalCoorLoc,CubeLight.POSITION_NORMAL_COUNT,GLES20.GL_FLOAT,false,CubeLight.STRIDE, cubeLight.vertexArrayBuffer)
+
         cubeLight.vertexArrayBuffer.position(0);
 
+        GLES20.glEnableVertexAttribArray(ulightcolorLoc)
+        //环境光，xyz坐标上的值
+        GLES20.glUniform3f(ulightcolorLoc,1.0f,1.0f,1.0f)
+
+        //设置光照点
+        GLES20.glEnableVertexAttribArray(ulightPosLoc)
+        GLES20.glUniform3f(ulightPosLoc,3.0f,0.0f,2.0f)
+
+        //设置镜面反射 视点位置
+        GLES20.glEnableVertexAttribArray(uViewPosLoc)
+        GLES20.glUniform3f(uViewPosLoc,-1.0f, 0.0f, 3.0f)
 
 //        GLES20.glDrawElements(GLES20.GL_TRIANGLES, 36, GLES20.GL_UNSIGNED_BYTE, cubeLight.indexArrayBuffer)
         GLES20.glDrawArrays(GLES20.GL_TRIANGLES,0,36)
