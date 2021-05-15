@@ -103,3 +103,10 @@
 
 [音视频开发之旅（42) - 光照基础(一)](https://mp.weixin.qq.com/s?__biz=MzU5NjkxMjE5Mg==&mid=2247484118&idx=1&sn=1e85d583e14cb94a8764603e0e483203&chksm=fe5a33f9c92dbaefaa6d5bf4b5a92a809876e7fd089ddb1ab173eb86bc31daed9f25c85d1c64&token=2096832100&lang=zh_CN#rd)
 
+[音视频开发之旅（43)-光照基础(二)](https://mp.weixin.qq.com/s?__biz=MzU5NjkxMjE5Mg==&mid=2247484130&idx=1&sn=fe3a965e94b30e14eeb4ca97951b03dd&chksm=fe5a33cdc92dbadb5e9ec45c5fff857884eab0d42eacb2d9e5bfcb86a3f2e78d1986b3b97474&token=722595979&lang=zh_CN#rd)
+
+
+## 阶段五 : 音视频开源项目实践和解析
+
+###5.1 ExoPlayer
+[音视频开发之旅（44)-ExoPlayer介绍及简单使用](https://mp.weixin.qq.com/s?__biz=MzU5NjkxMjE5Mg==&mid=2247484139&idx=1&sn=857dd3315edb7845d5f1f0b1af9c0c6a&chksm=fe5a33c4c92dbad2a585e919c6cb84407dff8e87dc04bad08b2f37461b763e64230ea448300c&token=722595979&lang=zh_CN#rd)
