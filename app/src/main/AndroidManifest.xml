@@ -6,6 +6,7 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.RECORD_AUDIO"/>
     <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
         android:allowBackup="true"
@@ -47,6 +48,7 @@
         <activity android:name=".particles.skybox.ParticlesSkyBoxActivity" />
         <activity android:name=".skybox.SkyBoxActivity" />
         <activity android:name=".skybox.CubeActivity" />
+        <activity android:name=".exoPlayer.ExoPlayerActivity" />
     </application>
 
 </manifest>

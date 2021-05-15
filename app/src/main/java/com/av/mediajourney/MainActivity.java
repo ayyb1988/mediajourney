@@ -15,6 +15,7 @@ import com.av.mediajourney.audiotrack.AudioTrackStaticActivity;
 import com.av.mediajourney.audiotrack.AudioTrackStreamActivity;
 import com.av.mediajourney.bezier.BezierMainActivity;
 import com.av.mediajourney.camera.CameraActivity;
+import com.av.mediajourney.exoPlayer.ExoPlayerActivity;
 import com.av.mediajourney.image.ImageActivity;
 import com.av.mediajourney.mediaMuxer.MediaMuxerActivity;
 import com.av.mediajourney.mediacodec.MediaCodecActivity;
@@ -63,6 +64,8 @@ public class MainActivity extends AppCompatActivity {
     TextView tvSkybox;
     @BindView(R.id.tv_cube)
     TextView tvLight;
+    @BindView(R.id.tv_exoplayer)
+    TextView tvExoPlayer;
 
 
     @Override
@@ -84,7 +87,8 @@ public class MainActivity extends AppCompatActivity {
 
     @OnClick({R.id.tv_image, R.id.tv_audiorecord, R.id.tv_audiotrackstaic, R.id.tv_audiotrackstream,
             R.id.tv_camera, R.id.tv_muxer, R.id.tv_mediacodec, R.id.tv_glsurfaceview, R.id.tv_texture,
-            R.id.tv_filter, R.id.tv_particles, R.id.tv_gpuimage, R.id.tv_bezier,R.id.tv_skybox,R.id.tv_cube})
+            R.id.tv_filter, R.id.tv_particles, R.id.tv_gpuimage, R.id.tv_bezier,R.id.tv_skybox,R.id.tv_cube,
+            R.id.tv_exoplayer})
     public void onViewClicked(View view) {
         Class<?> targetClass = null;
         switch (view.getId()) {
@@ -139,6 +143,9 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case R.id.tv_cube:
                 targetClass = CubeActivity.class;
+                break;
+            case R.id.tv_exoplayer:
+                targetClass = ExoPlayerActivity.class;
                 break;
 
         }

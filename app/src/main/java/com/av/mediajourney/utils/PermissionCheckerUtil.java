@@ -58,6 +58,10 @@ public class PermissionCheckerUtil {
             permissionsNeeded.add("Write external storage");
         }
 
+        if (!addPermission(permissionsList, Manifest.permission.INTERNET)) {
+            permissionsNeeded.add("internet");
+        }
+
         if (permissionsNeeded.size() > 0) {
 
             String message = "开启相机等权限";

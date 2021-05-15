@@ -1,2 +1,3 @@
+include ':myPlayer'
 rootProject.name='mediajourney'
 include ':app'
