@@ -3,10 +3,7 @@ package com.example.myplayer
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
-import com.google.android.exoplayer2.ExoPlayer
-import com.google.android.exoplayer2.MediaItem
-import com.google.android.exoplayer2.Player
-import com.google.android.exoplayer2.SimpleExoPlayer
+import com.google.android.exoplayer2.*
 import com.google.android.exoplayer2.analytics.AnalyticsListener
 import com.google.android.exoplayer2.audio.AudioAttributes
 import com.google.android.exoplayer2.audio.AudioListener
@@ -83,6 +80,26 @@ class ExoBaseUserActivity : AppCompatActivity() {
                 else -> "UNKNOWN_STATE             -"
             }
             Log.d("ExoBaseUserActivity", "changed state to $stateString")
+        }
+
+        override fun onPlayerError(error: ExoPlaybackException) {
+            Log.d("ExoBaseUserActivity", "onPlayerError $error")
+        }
+
+        override fun onIsPlayingChanged(isPlaying: Boolean) {
+            Log.d("ExoBaseUserActivity", "onIsPlayingChanged isPlaying= $isPlaying")
+        }
+
+        override fun onRepeatModeChanged(repeatMode: Int) {
+            Log.d("ExoBaseUserActivity", "onRepeatModeChanged repeatMode=$repeatMode")
+        }
+
+        /**
+         * {@link com.google.android.exoplayer2.Player.DiscontinuityReason}
+         */
+        override fun onPositionDiscontinuity(reason: Int) {
+            //当有播放队列切换音频/视频时 会回掉该API，其中reason为Player.DISCONTINUITY_REASON_PERIOD_TRANSITION
+            Log.d("ExoBaseUserActivity", "onPositionDiscontinuity reason=$reason")
         }
 
         override fun onAudioSessionIdChanged(audioSessionId: Int) {
