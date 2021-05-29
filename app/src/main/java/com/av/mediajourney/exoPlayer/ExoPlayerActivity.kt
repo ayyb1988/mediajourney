@@ -5,7 +5,8 @@ import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.av.mediajourney.R
-import com.example.myplayer.ExoBaseUserActivity
+import com.mediajourney.myplayer.ExoBaseUserActivity
+import com.mediajourney.myplayer.audio.ExoSimpleAudioPlayerActivity
 
 class ExoPlayerActivity : AppCompatActivity(), View.OnClickListener {
 
@@ -15,19 +16,19 @@ class ExoPlayerActivity : AppCompatActivity(), View.OnClickListener {
 
         val btExoPlayerBasic = findViewById<View>(R.id.bt_exoplayer_basic);
         btExoPlayerBasic.setOnClickListener(this)
+
+        val btExoPlayerAudio = findViewById<View>(R.id.bt_exoplayer_audio);
+        btExoPlayerAudio.setOnClickListener(this)
     }
 
     override fun onClick(v: View) {
         val id = v.id;
-        val initent = Intent()
+        val intent = Intent()
         when (id) {
-            R.id.bt_exoplayer_basic -> {
-                initent.setClass(this, ExoBaseUserActivity::class.java)
-                startActivity(initent)
-            }
-
-
+            R.id.bt_exoplayer_basic -> intent.setClass(this, ExoBaseUserActivity::class.java)
+            R.id.bt_exoplayer_audio -> intent.setClass(this, ExoSimpleAudioPlayerActivity::class.java)
         }
+        startActivity(intent)
     }
 
 }

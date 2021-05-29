@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/icon"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:layout_margin="@dimen/size_5" />
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/size_5"
+        android:textColor="@color/exo_black_opacity_70" />
+
+    <TextView
+        android:id="@+id/artist"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/size_5"
+        android:textColor="@color/exo_black_opacity_70" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/prev"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/size_5"
+            android:textSize="@dimen/size_12"
+            android:layout_weight="1"
+            android:text="上一首"
+            android:textColor="@color/exo_black_opacity_70" />
+
+        <Button
+            android:id="@+id/play"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/size_5"
+            android:textSize="@dimen/size_12"
+            android:layout_weight="1"
+            android:text="播放"
+            android:textColor="@color/exo_black_opacity_70" />
+
+        <Button
+            android:id="@+id/next"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/size_5"
+            android:textSize="@dimen/size_12"
+            android:layout_weight="1"
+            android:text="下一首"
+            android:textColor="@color/exo_black_opacity_70" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/speed"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/size_5"
+            android:textSize="@dimen/size_12"
+            android:layout_weight="1"
+            android:text="倍速"
+            android:textColor="@color/exo_black_opacity_70" />
+
+        <Button
+            android:id="@+id/fadeinout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/size_5"
+            android:textSize="@dimen/size_12"
+            android:layout_weight="1"
+            android:text="淡入淡出"
+            android:textColor="@color/exo_black_opacity_70" />
+
+        <Button
+            android:id="@+id/effect"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/size_5"
+            android:textSize="@dimen/size_12"
+            android:layout_weight="1"
+            android:text="简单音效"
+            android:textColor="@color/exo_black_opacity_70" />
+        
+        <Button
+            android:id="@+id/cache"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/size_5"
+            android:textSize="@dimen/size_12"
+            android:layout_weight="1"
+            android:text="边缓存边播放"
+            android:textColor="@color/exo_black_opacity_70" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/audiofocus"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/size_5"
+            android:textSize="@dimen/size_12"
+            android:layout_weight="1"
+            android:text="音频焦点"
+            android:textColor="@color/exo_black_opacity_70" />
+
+        <Button
+            android:id="@+id/backgroundplay"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/size_5"
+            android:textSize="@dimen/size_12"
+            android:layout_weight="1"
+            android:text="后台播放"
+            android:textColor="@color/exo_black_opacity_70" />
+
+        <Button
+            android:id="@+id/playqueue"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/size_5"
+            android:textSize="@dimen/size_12"
+            android:layout_weight="1"
+            android:text="播放队列"
+            android:textColor="@color/exo_black_opacity_70" />
+
+        <Button
+            android:id="@+id/playmode"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/size_5"
+            android:textSize="@dimen/size_12"
+            android:layout_weight="1"
+            android:text="播放模式"
+            android:textColor="@color/exo_black_opacity_70" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="48dp">
+
+        <TextView
+            android:id="@+id/startText"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="@dimen/size_5"
+            android:gravity="center_vertical"
+            android:maxLines="1"
+            android:textColor="@android:color/background_dark" />
+
+        <SeekBar
+            android:id="@+id/seekbar"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_gravity="center"
+            android:layout_marginLeft="@dimen/size_5"
+            android:layout_marginRight="@dimen/size_5"
+            android:layout_toStartOf="@+id/endText"
+            android:layout_toEndOf="@+id/startText" />
+
+        <TextView
+            android:id="@+id/endText"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_alignWithParentIfMissing="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="@dimen/size_5"
+            android:gravity="center_vertical"
+            android:maxLines="1"
+            android:textColor="@android:color/background_dark" />
+
+    </RelativeLayout>
+</LinearLayout>

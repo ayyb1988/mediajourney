@@ -1,8 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.myplayer">
-<uses-permission android:name="android.permission.INTERNET"/>
-    <application>
-        <activity android:name=".ExoBaseUserActivity" />
+    package="com.mediajourney.myplayer">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <application
+        android:usesCleartextTraffic="true">
+
+        <activity android:name="com.mediajourney.myplayer.ExoBaseUserActivity" />
+        <activity android:name="com.mediajourney.myplayer.audio.ExoSimpleAudioPlayerActivity" />
+
+        <service android:name="com.mediajourney.myplayer.audio.MusicService">
+            <intent-filter>
+                <action android:name="android.media.browse.MediaBrowserService" />
+            </intent-filter>
+        </service>
     </application>
 </manifest>

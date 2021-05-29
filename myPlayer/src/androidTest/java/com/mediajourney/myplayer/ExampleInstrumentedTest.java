@@ -1,4 +1,4 @@
-package com.example.myplayer;
+package com.mediajourney.myplayer;
 
 import android.content.Context;
 
