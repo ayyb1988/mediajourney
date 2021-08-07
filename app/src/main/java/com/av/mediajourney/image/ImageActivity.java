@@ -33,7 +33,7 @@ public class ImageActivity extends AppCompatActivity {
         surfaceView = findViewById(R.id.surfaceview);
         customView = findViewById(R.id.customview);
 
-        String path = Environment.getExternalStorageDirectory().getPath() + File.separator + "Pictures"/* + File.separator + "kugou" */+ File.separator + "kg_1602121905506.jpg";
+        String path = Environment.getExternalStorageDirectory().getPath() + File.separator + "Pictures"+ File.separator + "temp_1602121905506.jpg";
         Log.d("MainActivity", "onCreate: path: "+path);
         Bitmap bitmap = BitmapFactory.decodeFile(path);
         imageView.setImageBitmap(bitmap);
@@ -58,7 +58,7 @@ public class ImageActivity extends AppCompatActivity {
     }
 
     private void handSurfaceview() {
-        final String path = Environment.getExternalStorageDirectory().getPath() + File.separator + "Pictures" /*+ File.separator + "kugou" */+ File.separator + "kg_1602121905506.jpg";
+        final String path = Environment.getExternalStorageDirectory().getPath() + File.separator + "Pictures" + File.separator + "temp_1602121905506.jpg";
         Log.d("MainActivity", "onCreate: path: "+path);
         Bitmap bitmap = BitmapFactory.decodeFile(path);
         imageView.setImageBitmap(bitmap);
@@ -74,7 +74,7 @@ public class ImageActivity extends AppCompatActivity {
                 paint.setAntiAlias(true);
 //                                paint.setStyle(Paint.Style.STROKE);
 
-                String path = Environment.getExternalStorageDirectory().getPath() + File.separator + "Pictures" /*+ File.separator + "kugou"*/ + File.separator + "kg_1602121905506.jpg";
+                String path = Environment.getExternalStorageDirectory().getPath() + File.separator + "Pictures"  + File.separator + "temp_1602121905506.jpg";
 
                 Bitmap bitmap1 = BitmapFactory.decodeFile(path);
 

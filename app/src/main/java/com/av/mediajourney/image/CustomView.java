@@ -30,7 +30,7 @@ public class CustomView extends View {
         paint = new Paint();
         paint.setAntiAlias(true);
         paint.setStyle(Paint.Style.STROKE);
-        String path = Environment.getExternalStorageDirectory().getPath() + File.separator + "Pictures" /*+ File.separator + "kugou" */+ File.separator + "kg_1602121905506.jpg";
+        String path = Environment.getExternalStorageDirectory().getPath() + File.separator + "Pictures" + File.separator + "temp_1602121905506.jpg";
 
         bitmap = BitmapFactory.decodeFile(path);
     }
