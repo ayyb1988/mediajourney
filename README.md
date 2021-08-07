@@ -108,6 +108,17 @@
 
 ## 阶段五 : 音视频开源项目实践和解析
 
-###5.1 ExoPlayer
+### 5.1 ExoPlayer
 
 [音视频开发之旅（44)-ExoPlayer介绍及简单使用](https://mp.weixin.qq.com/s?__biz=MzU5NjkxMjE5Mg==&mid=2247484139&idx=1&sn=857dd3315edb7845d5f1f0b1af9c0c6a&chksm=fe5a33c4c92dbad2a585e919c6cb84407dff8e87dc04bad08b2f37461b763e64230ea448300c&token=722595979&lang=zh_CN#rd)
+
+### 5.2 Android基础之-消息机制
+
+[Android基础进阶 - 消息机制](https://mp.weixin.qq.com/s?__biz=MzU5NjkxMjE5Mg==&mid=2247484157&idx=1&sn=cbb422a3d9eb19c20f8813b338717405&chksm=fe5a33d2c92dbac4e5799ef5d8d525327e3ae76169debd32ec78c6263820ec4247ee5d4bd8df&scene=178&cur_album_id=1555170733025181699#rd)
+
+[Android基础进阶 - 消息机制 之ThreadLocal](https://mp.weixin.qq.com/s?__biz=MzU5NjkxMjE5Mg==&mid=2247484163&idx=1&sn=f4f026ddaf432328f57c57384b6730ec&chksm=fe5a322cc92dbb3a1ce0c51b68caef252ccec5564db2eef5d2924ab14512fb1391f7aebef7c2&scene=178&cur_album_id=1555170733025181699#rd)
+
+[Android基础进阶 - 消息机制 之Native层分析](https://mp.weixin.qq.com/s?__biz=MzU5NjkxMjE5Mg==&mid=2247484173&idx=1&sn=d689b9e1b17231236161110f5b8fa6b7&chksm=fe5a3222c92dbb3407cbe4042cef6ea83adeaff636bb421bbff1a0bc9de8ff5dfb19f6216f99&scene=178&cur_album_id=1555170733025181699#rd)
+
+### 5.3 VideoCache -边下载边播放
+[音视频开发之旅（49)-边缓存边播放之AndroidVideoCache](https://mp.weixin.qq.com/s?__biz=MzU5NjkxMjE5Mg==&mid=2247484184&idx=1&sn=bbc83d99528450f9643da5a1d5607274&chksm=fe5a3237c92dbb210b1030e1e311c9f1c9023150e0feec1d68ea9fa61486b57f3fef70cf1ba2&scene=178&cur_album_id=1555170733025181699#rd)
